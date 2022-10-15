@@ -78,6 +78,7 @@ body {
 
 .gridContainer {
     min-width: 520px;
+    
 }
 
 .btn-new {
@@ -130,7 +131,7 @@ body {
 
 .tableSelectedRow {
     background-color: #F0E68C !important;
-    color: black;
+    color: green;
 }
 
 .modal-header {
