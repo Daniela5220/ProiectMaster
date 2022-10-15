@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model IEnumerable<OrderVM>
+
+
+@{ ViewData["Title"] = "Order"; }
+
+
+<div class="row mb-2 mt-2 operationsButtons">
+    <div class="col-md-12">
+        <a href="/Order/New" class="btn btn-new btn-outline-new font-weight-bold mr-2" data-toggle="tooltip" title="New" data-placement="top">
+            <span class="fa fa-plus-circle"></span>
+        </a>
+
+        <button class="btn btn-outline-dark font-weight-bold mr-2" data-toggle="tooltip" title="Edit" data-placement="top" onclick="Order.onEditBtnPress()">
+            <span class="fa fa-edit"></span>
+        </button>
+
+        <button type="button" class="btn btn-delete btn-outline-delete font-weight-bold mr-2" id="btnDelete" data-toggle="tooltip" data-placement="top" title="Delete" onclick="Order.onDelete()">
+            <span class="fa fa-trash"></span>
+        </button>
+    </div>
+</div>
+
+<br />
+<br />
+
+<table id="table" class="table table-hover table-striped table-dark">
+    <thead>
+        <tr>
+            <th hidden>Order Id</th>
+
+            <th> Name</th>
+            <th>Phone number</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Order date</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr id="@item.Id">
+                <td hidden>@item.Id</td>
+
+                <td>@item.CustomerName</td>
+                <td>@item.CustomerPhoneNumber</td>
+                <td>@item.CustomerEmail</td>
+                <td>@item.CustomerAddress</td>
+                <td>@item.OrderDate</td>
+
+            </tr>
+}
+
+    </tbody>
+
+</table>

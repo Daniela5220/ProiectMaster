@@ -1,0 +1,91 @@
+﻿@model OrderVM
+
+@{ string action = "";
+    var isNew = (bool)ViewBag.IsNew;
+    if (isNew)
+        action = "/Order/New";
+    else
+        action = string.Format("/Order/Edit/{0}", Model.Id); }
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 table-round bg-light shadow">
+
+        <br />
+        <h4>Orders</h4>
+        <br />
+
+        <div class="col-xl-12">
+
+            <input asp-for="Id" hidden />
+
+            <form action="@action" method="post" enctype="multipart/form-data">
+                <div>
+
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <br />
+                    <div class="row">
+
+                        <div class="col-sm-12 col-lg-12">
+
+                            <div class="row">
+
+                                <div class="col-xs-12 col-sm-2">
+                                    <label class="control-label font-weight-bold">Name</label>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-4">
+                                    <input asp-for="CustomerName" class="form-control" /><br />
+                                    <span asp-validation-for="CustomerName" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-2">
+                                    <label class="control-label font-weight-bold">Phone Number</label>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-4">
+                                    <input asp-for="CustomerPhoneNumber" /><br />
+                                    <span asp-validation-for="CustomerPhoneNumber" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-2">
+                                    <label class="control-label font-weight-bold">Email</label>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-4">
+                                    <input asp-for="CustomerEmail" class="form-control" /><br />
+                                    <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+
+                                </div>
+                                <div class="col-xs-12 col-sm-2">
+                                    <label class="control-label font-weight-bold">Address</label>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-4">
+                                    <input asp-for="CustomerAddress" class="form-control" /><br />
+                                    <span asp-validation-for="CustomerAddress" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-2">
+                                    <label class="control-label font-weight-bold">Order Date</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <input asp-for="OrderDate" class="form-control" /><br />
+                                    <span asp-validation-for="OrderDate" class="text-danger"></span>
+                                </div>
+                               
+                            </div>
+                     </div>
+
+                        <br />
+                 </div>
+                    @await Html.PartialAsync(@"_CancelSaveBtn.cshtml");
+                </div>
+
+                
+            </form>
+
+        </div>
+
+    </div>
+</div>

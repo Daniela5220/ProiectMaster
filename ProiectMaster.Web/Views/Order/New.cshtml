@@ -1,0 +1,7 @@
+﻿@model OrderVM
+
+@{ ViewData["Title"] = "Add an order"; }
+
+@{ ViewBag.IsNew = true;}
+
+@await Html.PartialAsync(@"../Shared/Components/_Order.cshtml")
